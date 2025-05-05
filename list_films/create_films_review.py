@@ -65,7 +65,7 @@ def add_to_csv_file(result, part_title, information) -> bool:
         return False
 
 
-@Retry(max_retries=3)
+@Retry(max_retries=5)
 def process(film) -> list[str]:
     part_title_swap = swap_title(film)
     with open("prompt1.txt", "r", encoding="utf-8") as file_for_prompt:
@@ -84,10 +84,11 @@ def process(film) -> list[str]:
 
 
 env = Env()
+env.read_env()
+api_key = env("API_KEY")
 client_user = prompter(OpenAI(
      base_url="https://openrouter.ai/api/v1",
-     api_key=env.read_env('.env')))
-
+     api_key=api_key))
 with open('right_top1000.txt', 'r', encoding='utf-8') as file:
     films_list = file.readlines()
 for i in range(len(films_list)):
