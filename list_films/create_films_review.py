@@ -109,4 +109,5 @@ with open('right_top1000.txt', 'r', encoding='utf-8') as file:
 for i in range(len(films_list)):
     resulting = process(films_list[i])
     logging.info(f'Итерация с фильмом {resulting} удачно завершилась')
+    print(f'Добавлен фильм {resulting}')
     time.sleep(2)
