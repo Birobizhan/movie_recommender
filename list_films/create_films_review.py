@@ -6,7 +6,7 @@ import re
 from openai.types.chat import ChatCompletion
 from typing import Callable, TypeVar
 
-logging.basicConfig(level=logging.INFO, filename="create_films_review_log.log", filemode="w",
+logging.basicConfig(level=logging.INFO, filename="create_films_review_log.log", filemode="a",
                     format="%(asctime)s %(levelname)s %(message)s")
 T = TypeVar('T')
 
