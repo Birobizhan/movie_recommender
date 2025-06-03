@@ -70,14 +70,21 @@ def swap_title(title_film: str) -> str:
 
 def add_to_csv_file(result, part_title, information) -> bool:
     logging.info(f'Запрос и ответ одинаковые: {result[0] == part_title}')
+    print(result[0])
+    print(part_title)
+    print(result[0] == part_title)
     if result[0] == part_title:
         with open(f'genre_csv/{result[1]}.csv', 'a', encoding='utf-8') as file_add:
             file_add.write(f"\n{information}")
         with open('count.txt', 'a', encoding='utf-8') as file_add:
             file_add.write(f'{part_title}\n')
-        logging.info(f'Удачно добавлен фильм {part_title}, в этом цикле он {i+1}')
+        logging.info(f'Удачно добавлен фильм {part_title}')
         return True
     else:
+        for i in range(len(result[0])):
+            if result[0][i] != part_title[i]:
+                logging.info(f"Различие в позиции {i}: '{result[0][i]}' vs '{part_title[i]}'")
+
         return False
 
 
