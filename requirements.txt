@@ -1,7 +1,8 @@
 aiogram~=3.20.0.post0
-
 environs~=14.1.1
-requests~=2.32.3
+requests~=2.32.4
 bs4~=0.0.2
 beautifulsoup4~=4.13.4
 openai~=1.76.0
+pandas~=2.3.2
+numpy~=2.3.2
